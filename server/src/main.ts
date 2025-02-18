@@ -7,10 +7,8 @@ import { ChatSocket } from './app/sockets/chat.socket';
 
 const app = express();
 const httpServer = createServer(app);
-const io = new Server(httpServer, {
-  cors: { origin: '*' },
-  addTrailingSlash: false,
-});
+
+const io = new Server(httpServer, { cors: { origin: '*' }, transports: ['polling', 'websocket'], });
 
 app.use(cors());
 app.use(express.json());
@@ -20,5 +18,5 @@ ChatSocket(io);
 
 const PORT = process.env.PORT || 4000;
 httpServer.listen(PORT, () =>
-  console.log(`🚀 Server running at http://0.0.0.0:${PORT}`)
+  console.log(`🚀 Server running at http://localhost:${PORT}`)
 );
