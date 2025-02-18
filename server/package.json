@@ -7,15 +7,12 @@
     "projectType": "application",
     "sourceRoot": "server/src",
     "targets": {
-      "serve": {
+      "build": {
         "executor": "@nx/js:node",
-        "defaultConfiguration": "development",
-        "dependsOn": [
-          "build"
-        ],
         "options": {
-          "buildTarget": "server:build",
-          "runBuildTargetDependencies": false
+          "outputPath": "server/dist", 
+          "main": "server/src/main.ts",
+          "tsConfig": "server/tsconfig.app.json"
         },
         "configurations": {
           "development": {
@@ -24,6 +21,12 @@
           "production": {
             "buildTarget": "server:build:production"
           }
+        }
+      },
+      "serve": {
+        "executor": "@nx/js:node",
+        "options": {
+          "buildTarget": "server:build"
         }
       }
     }
