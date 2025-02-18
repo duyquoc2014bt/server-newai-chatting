@@ -14,7 +14,8 @@
     "lint:client": "nx run client:lint",
     "format": "nx format --all",
     "build:server": "nx run server:build",
-    "build:client": "nx run client:build"
+    "build:client": "nx run client:build",
+    "build": "nx run-many --target=build --projects=server,client"
   },
   "private": true,
   "devDependencies": {
