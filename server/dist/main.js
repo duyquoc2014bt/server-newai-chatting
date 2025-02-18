@@ -399,8 +399,7 @@ const chat_socket_1 = __webpack_require__(18);
 const app = (0, express_1.default)();
 const httpServer = (0, http_1.createServer)(app);
 const io = new socket_io_1.Server(httpServer, {
-    cors: { origin: '*' },
-    addTrailingSlash: false,
+    cors: { origin: '*' }
 });
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
