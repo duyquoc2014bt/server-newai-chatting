@@ -407,7 +407,7 @@ app.use(express_1.default.json());
 app.use('/api', routes_1.default);
 (0, chat_socket_1.ChatSocket)(io);
 const PORT = process.env.PORT || 4000;
-httpServer.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`));
+httpServer.listen(PORT, () => console.log(`🚀 Server running at http://0.0.0.0:${PORT}`));
 
 })();
 
