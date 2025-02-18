@@ -7,8 +7,10 @@ import { ChatSocket } from './app/sockets/chat.socket';
 
 const app = express();
 const httpServer = createServer(app);
-
-const io = new Server(httpServer, { cors: { origin: '*' }, transports: ['polling', 'websocket'], });
+const io = new Server(httpServer, {
+  cors: { origin: '*' },
+  addTrailingSlash: false,
+});
 
 app.use(cors());
 app.use(express.json());
